@@ -15,7 +15,7 @@ number_dict = {
     'nine': '9',
 }
 
-with open("Day 1/data.txt") as f:
+with open("2023/Day 1/data.txt") as f:
     for line in f:
         lines.append(line)
 

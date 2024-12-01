@@ -1,20 +1,17 @@
-#Advent of Code 2023 Day 1 Puzzle 1
-
-lines = []
-result = 0
+left_list = []
+right_list = []
+total_distance = 0
 
 with open("Day 1/data.txt") as f:
     for line in f:
-        lines.append(line)
+        line = line.replace("\n", "")
+        left_list.append(line.split("   ")[0])
+        right_list.append(line.split("   ")[1])
 
-for line in lines:
-    
-    numbers = []
-    
-    for _, char in enumerate(line):
-        if char.isdigit():
-            numbers.append(char)
-            
-    result += int(numbers[0] + numbers[-1])
+left_list.sort()
+right_list.sort()
 
-print(result) #Result is 54239
+for i, list_item in enumerate(left_list):
+    total_distance += abs(int(list_item) - int(right_list[i]))
+
+print(total_distance)

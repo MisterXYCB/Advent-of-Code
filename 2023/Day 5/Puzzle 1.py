@@ -5,7 +5,7 @@ inputs = []
 score = 0
 result = 0
 
-with open("Day 5/data.txt") as f:
+with open("2023/Day 5/data.txt") as f:
     inputs = f.read().replace("seeds: ", "").replace("seed-to-soil map:\n", "").replace("soil-to-fertilizer map:\n", "").replace("fertilizer-to-water map:\n", "").replace("water-to-light map:\n", "").replace("light-to-temperature map:\n", "").replace("humidity-to-location map:\n", "").replace("temperature-to-humidity map:\n", "").split("\n\n")
 
 

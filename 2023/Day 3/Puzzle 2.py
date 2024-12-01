@@ -6,7 +6,7 @@ result = 0
 numbers = []
 symbols = []
 
-with open("Day 3/data.txt") as f:
+with open("2023/Day 3/data.txt") as f:
     for x, line in enumerate(f):
         
         number_str = ""

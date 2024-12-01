@@ -3,7 +3,7 @@ import re
 
 result = 1
 
-with open("Day 6/data.txt") as f:
+with open("2023/Day 6/data.txt") as f:
     string = re.sub(r" ", "", f.read().replace("Time:", "").replace("Distance:", ""))
 
 inputs = string.split("\n")

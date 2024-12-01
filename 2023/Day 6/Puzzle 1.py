@@ -4,7 +4,7 @@ import re
 rounds = []
 result = 1
 
-with open("Day 6/data.txt") as f:
+with open("2023/Day 6/data.txt") as f:
     string = re.sub(r" {1,}", " ", f.read().replace("Time:        ", "").replace("Distance:   ", ""))
 
 inputs = string.split("\n")

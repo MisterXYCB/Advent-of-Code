@@ -5,7 +5,7 @@ cards = []
 score = 0
 result = 0
 
-with open("Day 4/data.txt") as f:
+with open("2023/Day 4/data.txt") as f:
     for line in f:
         cards.append(re.sub("Card .+: ", "", line).replace("\n", "").split(" | "))
 

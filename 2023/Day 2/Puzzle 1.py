@@ -1,10 +1,10 @@
-#Advent of Code 2023 Day 2 Puzzle 2
+#Advent of Code 2023 Day 2 Puzzle 1
 import re
 
 games = []
 result = 0
 
-with open("Day 2/data.txt") as f:
+with open("2023/Day 2/data.txt") as f:
     for line in f:
         games.append(re.sub("Game .+: ", "", line).replace("\n", "").split("; "))
 
@@ -12,9 +12,7 @@ with open("Day 2/data.txt") as f:
 for i in range(len(games)):
 
     pulls = []
-    minRed = 0
-    minBlue = 0
-    minGreen = 0
+    possible = True
     
     for round in games[i]:
         
@@ -32,16 +30,20 @@ for i in range(len(games)):
 
         amount, color = pull.split(" ")
 
-        if color == "red" and int(amount) > minRed:
-            minRed = int(amount)
+        if color == "red" and int(amount) > 12:
+            possible = False
+            break
             
-        if color == "blue" and int(amount) > minBlue:
-            minBlue = int(amount)
+        elif color == "blue" and int(amount) > 14:
+            possible = False
+            break
 
-        if color == "green" and int(amount) > minGreen:
-            minGreen = int(amount)
+        elif color == "green" and int(amount) > 13:
+            possible = False
+            break
     
-    result  += minRed * minBlue * minGreen
+    if possible:
+        result  += i + 1
 
 
-print(result) #Result is 66016
+print(result) #Result is 2541
