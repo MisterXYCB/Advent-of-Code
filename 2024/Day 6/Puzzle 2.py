@@ -77,7 +77,6 @@ for i, row in enumerate(rows):
             continue
         startMap[i][j] = "#"
         if(isInfinite(startMap, startGuardX, startGuardY, startFacing)):
-            print("LOOP " + str(i) + " " + str(j) + "                                    ")
             loops += 1
-print("                                                                                  ")
+            
 print(str(loops))
