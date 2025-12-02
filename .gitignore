@@ -2,3 +2,4 @@
 .vscode
 2024/Day 14/images/*
 *.pyc
+vars.py
