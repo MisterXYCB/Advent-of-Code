@@ -61,28 +61,29 @@ except Exception as e:
 
 if not os.path.exists(f"{year}/Day {day}/puzzle1.py"):
     with open(f"{year}/Day {day}/puzzle1.py", 'w') as puzzleOneFile:
-        puzzleOneFile.write(f'import sys\n\nsys.path.insert(1, "\\\\".join(sys.path[0].split("\\\\")[:4]))\n\nfrom dataLoader import *\n\ndata = getData({year}, {day}, DataType.LINE).split(",")')
+        puzzleOneFile.write(f'import sys\n\nsys.path.insert(1, "\\\\".join(sys.path[0].split("\\\\")[:4]))\n\nfrom dataLoader import *\n\ndata = getData({year}, {day}, DataType.LINE)')
     print(f"Created puzzle1.py for Year {year} Day {day}.")
 else:
     print(f"puzzle1.py already exists.")
 
 if not os.path.exists(f"{year}/Day {day}/puzzle2.py"):
     with open(f"{year}/Day {day}/puzzle2.py", 'w') as puzzleTwoFile:
-        puzzleTwoFile.write(f'import sys\n\nsys.path.insert(1, "\\\\".join(sys.path[0].split("\\\\")[:4]))\n\nfrom dataLoader import *\n\ndata = getData({year}, {day}, DataType.LINE).split(",")')
+        puzzleTwoFile.write(f'import sys\n\nsys.path.insert(1, "\\\\".join(sys.path[0].split("\\\\")[:4]))\n\nfrom dataLoader import *\n\ndata = getData({year}, {day}, DataType.LINE)')
     print(f"Created puzzle2.py for Year {year} Day {day}.")
 else:
     print(f"puzzle2.py already exists.")
 
-if not os.path.exists(f"{year}/Day {day}/description.md"):
-    url = f"https://adventofcode.com/{year}/day/{day}"
-    headers = { 'Cookie': COOKIE }
-    response = requests.get(url, headers=headers)
-    data = response.text
-
-    with open(f"{year}/Day {day}/description.md", 'w') as puzzleOneFile:
-        puzzleOneFile.write(data)
-    print(f"Created description.md for Year {year} Day {day}.")
+if os.path.exists(f"{year}/Day {day}/description.md"):
+    print(f"Updating description.md for Year {year} Day {day}.")
 else:
-    print(f"description.md already exists.")
+    print(f"Creating description.md for Year {year} Day {day}.")
+
+url = f"https://adventofcode.com/{year}/day/{day}"
+headers = { 'Cookie': COOKIE }
+response = requests.get(url, headers=headers)
+data = response.text
+
+with open(f"{year}/Day {day}/description.md", 'w') as puzzleOneFile:
+    puzzleOneFile.write(data)
 
 print("All files created!")
