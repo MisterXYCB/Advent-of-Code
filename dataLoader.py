@@ -4,6 +4,7 @@ class DataType(Enum):
     LINE = "line"
     SPLITLINES = "splitlines"
     GRID = "grid"
+    WHOLE = "whole"
 
 def getData(year: int = 2024, day: int = 1, dataType: DataType = DataType.LINE):
     with open(f"data/{year}/{day}.txt") as f:
@@ -27,3 +28,7 @@ def getData(year: int = 2024, day: int = 1, dataType: DataType = DataType.LINE):
                     row = list(line)
                     grid.append(row)
                 return grid
+
+            case DataType.WHOLE:
+                whole = f.read()
+                return whole
